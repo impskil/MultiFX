@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="600.0" stylesheets="@../../../../../src/css/app.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.multifx.multifx.HelloController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="170.0" style="-fx-background-color: #e7a33a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="221.0" prefWidth="170.0">
+               <children>
+                  <Pane prefHeight="77.0" prefWidth="170.0">
+                     <children>
+                        <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="53.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../src/img/calculator.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="90.0" text="Réussite" />
+                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="99.0" text="Tentatives" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="111.0" text="Bonnes " GridPane.rowIndex="2" />
+                        <Label fx:id="labelRatio" alignment="CENTER" prefHeight="18.0" prefWidth="110.0" text="100%" GridPane.columnIndex="1" />
+                        <Label fx:id="labelTotal" alignment="CENTER" prefHeight="18.0" prefWidth="124.0" text="12" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelScore" alignment="CENTER" prefHeight="18.0" prefWidth="101.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="resetButton" mnemonicParsing="true" onAction="#OnResetButton" prefHeight="32.0" prefWidth="170.0" text="Recommencer">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="171.0" text="Difficulté">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Slider fx:id="sliderDifficult" majorTickUnit="10.0" max="10.0" minorTickCount="9" showTickMarks="true" snapToTicks="true" value="5.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Slider>
+            <Label fx:id="labelDifficult" alignment="CENTER" prefHeight="18.0" prefWidth="175.0" text="5" />
+         </children>
+      </VBox>
+      <VBox layoutX="171.0" prefHeight="116.0" prefWidth="431.0" style="-fx-background-color: #183f3a;" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="431.0" text="Multiplication" textAlignment="CENTER" textFill="#ff9f22">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelCalcul" alignment="CENTER" prefHeight="85.0" prefWidth="431.0" text="1 x 1" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+         </children></VBox>
+      <VBox layoutX="170.0" layoutY="116.0" prefHeight="212.0" prefWidth="430.0" style="-fx-background-color: #317168;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="116.0">
+         <children>
+            <TextField fx:id="textFieldReponse" alignment="CENTER" onAction="#OnSubmitReponse" prefHeight="40.0" prefWidth="430.0" promptText="Quelle est la réponse ?">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label fx:id="labelMessage" alignment="CENTER" prefHeight="50.0" prefWidth="430.0" text="Bonne réponse !">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelResult" text="0" />
+         </children></VBox>
+   </children>
+</AnchorPane>
